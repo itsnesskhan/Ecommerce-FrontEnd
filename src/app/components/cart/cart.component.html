@@ -6,10 +6,12 @@
       <div *ngFor="let item of cartItems" class="cart-item">
         <img [src]="item.product.imageUrl" alt="{{ item.product.productName }}" class="product-image">
         <div class="item-details">
-          <h3>{{ item.product.productName }}</h3>
-          <p>{{ item.product.description }}</p>
-          <p>Price: ${{ item.product.price | number:'1.2-2' }}</p>
-          <p>Quantity: {{ item.quantity }}</p>
+          <div class="info-container">
+            <h3>{{ item.product.productName }}</h3>
+            <p>{{ item.product.description }}</p>
+            <p>Price: ${{ item.product.price | number:'1.2-2' }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+          </div>
           <div class="action-buttons">
             <button (click)="increaseQuantity(item)" class="icon-button">
               <i class="fa fa-plus"></i>
@@ -29,7 +31,7 @@
           <p class="total">Total: ${{ calculateTotal() | number:'1.2-2' }}</p>
           <!-- Add any additional details about the total calculation here -->
         </div>
-        
+  
         <!-- Checkout Button -->
         <button class="btn btn-primary checkout-button" (click)="checkout()">Checkout</button>
       </div>

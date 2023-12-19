@@ -109,10 +109,27 @@ h2 {
     margin: 20px auto;
   }
   
-  .cart-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
+ /* cart.component.css */
+.cart-item {
+    display: flex;
+    margin-bottom: 20px;
   }
+  
+  
+  
+  .item-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .info-container {
+    flex: 1;
+  }
+  
+  /* Add any additional styling as needed */
+  
   
   .cart-item img {
     max-width: 80px;
