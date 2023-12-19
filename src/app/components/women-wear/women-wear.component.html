@@ -1,0 +1,8 @@
+<div class="container">
+    <h2 class="section-heading">Women's Top Wear</h2>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let product of womenWearProducts">
+        <app-product-wiget [product]="product" [showButtons]="false"></app-product-wiget>
+      </div>
+    </div>
+  </div>

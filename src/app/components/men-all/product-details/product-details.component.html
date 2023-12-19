@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row ">
+   <!-- Left side: Product Images -->
+    <div class="col-md-5">
+      <div id="productImagesCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li *ngFor="let image of selectedProduct.images; let i = index" [class.active]="i === activeImageIndex" data-target="#productImagesCarousel" [attr.data-slide-to]="i"></li>
+        </ol>
+        
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div *ngFor="let image of selectedProduct.images; let i = index" [class.active]="i === activeImageIndex" class="item">
+            <img src="{{ image }}" alt="{{ selectedProduct.productName }} Image">
+          </div>
+        </div>
+      
+        <!-- Controls -->
+        <a class="left carousel-control" (click)="prevImage()" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" (click)="nextImage()" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  
+
+    <!-- Right side: Product Information -->
+    <div class="col-md-7">
+      <div>
+        <h2>{{ selectedProduct.productName }}</h2>
+        <p class="product-description">{{ selectedProduct.description }}</p>
+        <p class="price">
+          <!-- Display discounted price with original price crossed out -->
+          <span class="discounted-price">{{ selectedProduct.price | currency: 'USD' }}</span>
+          <span class="original-price">{{ (selectedProduct.price * 1.2) | currency: 'USD' }}</span>
+          <span *ngIf="calculateDiscountAmount() > 0" class="discount-amount">
+             <span class="red-box"><b> Rs. {{ calculateDiscountAmount() | currency: 'USD' }} OFF!</b></span>
+          </span>
+        </p>
+
+         <!-- Size selection dropdown -->
+         <div class="form-group">
+          <label for="sizeSelect">Size:</label>
+          <select class="form-control" id="sizeSelect" [(ngModel)]="selectedSize">
+            <option value="small">Small (S)</option>
+            <option value="medium">Medium (M)</option>
+            <option value="large">Large (L)</option>
+            <option value="large">Extra Large (XL)</option>
+            <!-- Add more size options as needed -->
+          </select>
+        </div>
+
+        <div class="button-container">
+          <button class="btn btn-primary cart-button" (click)="addToCart(selectedProduct,selectedSize)">Add to Cart</button>
+          <button class="btn btn-success buy-now-button ml-3" (click)="buyNow(selectedProduct,selectedSize)">Buy Now</button>
+        </div>
+
+        <div class="delivery-services-section">
+          <h4>Delivery & Services</h4>
+          <ul>
+            <li>Free Shipping</li>
+            <li>30-Day Return Policy</li>
+            <li>24/7 Customer Support</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

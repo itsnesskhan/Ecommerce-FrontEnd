@@ -1,0 +1,29 @@
+<!-- navbar.component.html -->
+<div class="navbar">
+    <img src="assets/images/logo.png" alt="Logo" class="logo">
+    <!-- <a href="#men-wear">Men's Wear</a>
+    <a href="#women-wear">Women's Wear</a>
+    <a href="#top-deal">Top Wear</a>
+    <a href="#">Bottom Wear</a> -->
+
+    <a [routerLink]="'mens-wear'" >Men's Wear</a>
+    <a [routerLink]="'mens-wear'" >Women's Wear</a>
+    <a [routerLink]="'mens-wear'" >Top Wear</a>
+    <a [routerLink]="'mens-wear'" >Bottom Wear</a>
+    
+    <!-- Search bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <button class="button"><i class="fa fa-search"></i> Search</button>
+    </div>
+  
+    <div class="navbar-buttons">
+        <button [routerLink]="'home'" class="button"><i class="fa fa-home"></i> Home</button>
+        <button [routerLink]="'login'" class="button"><i class="fa fa-sign-in"></i> Login</button>
+        <button [routerLink]="'signup'" class="button"><i class="fa fa-user-plus"></i> Signup</button>
+      <a class="button cart-button" [routerLink]="'cart'">
+        <i class="fa fa-shopping-cart"></i> Cart
+      </a>
+    </div>
+  </div>
+  

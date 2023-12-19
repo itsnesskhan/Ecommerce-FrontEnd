@@ -1,0 +1,8 @@
+<div class="container">
+    <h2 class="section-heading">Trending Deals</h2>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let product of topDealProducts">
+        <app-product-wiget [product]="product" [showButtons]="false"></app-product-wiget>
+      </div>
+    </div>
+  </div>

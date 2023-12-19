@@ -1,0 +1,24 @@
+.categories {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+  .category {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* width: 300px; */
+    margin: 10px;
+  }
+
+  .category a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .category-link {
+    padding: 5px;
+  }
+
